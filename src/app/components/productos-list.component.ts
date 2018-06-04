@@ -27,7 +27,7 @@ export class ProductosListComponent {
     this._productoService.getProductos().subscribe(
       result => {
 
-        if(result.code !== 200) {
+        if (result.code !== 200) {
           console.log(result);
         } else {
           this.productos = result.data;
