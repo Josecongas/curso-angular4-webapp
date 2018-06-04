@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { ProductoService } from '../services/producto.service';
+import { Producto } from '../models/producto';
+
 
 @Component({
   selector: 'productos-list',
@@ -9,6 +11,8 @@ import { ProductoService } from '../services/producto.service';
 })
 export class ProductosListComponent {
   public titulo: string;
+  public productos: Producto[];
+
   constructor(
       private _route: ActivatedRoute,
       private _router: Router,
@@ -20,6 +24,13 @@ export class ProductosListComponent {
   ngOnInit() {
     console.log('Se ha cargado el componente Home');
 
-    alert(this._productoService.getProductos());
+    this._productoService.getProductos().subscribe(
+      result => {
+        console.log(result);
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
   }
 }
