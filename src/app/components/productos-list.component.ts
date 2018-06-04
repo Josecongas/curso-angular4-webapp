@@ -21,16 +21,21 @@ export class ProductosListComponent {
     this.titulo = 'Listado de productos';
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log('Se ha cargado el componente Home');
 
     this._productoService.getProductos().subscribe(
       result => {
-        console.log(result);
+
+        if(result.code !== 200) {
+          console.log(result);
+        } else {
+          this.productos = result.data;
+        }
       },
       error => {
         console.log(<any>error);
       }
-    )
+    );
   }
 }
