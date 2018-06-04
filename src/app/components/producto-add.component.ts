@@ -10,9 +10,15 @@ import { Producto } from '../models/producto';
 })
 export class ProductoAddComponent {
   public titulo: string;
+  public producto: Producto;
 
   constructor() {
     this.titulo = 'Crear un nuevo producto';
+    this.producto = new Producto(0, '', '', 0, '');
+  }
+
+  onSubmit() {
+      console.log(this.producto);
   }
 
   ngOnInit(): void {

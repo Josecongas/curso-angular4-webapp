@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 // Rutas
@@ -21,7 +22,7 @@ import { ProductoAddComponent } from './components/producto-add.component';
     ProductosListComponent,
     ProductoAddComponent
   ],
-  imports: [BrowserModule, routing],
+  imports: [BrowserModule, routing, FormsModule],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })

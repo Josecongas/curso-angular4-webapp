@@ -71,3 +71,7 @@ border-bottom: 4px solid yellow !important;
   margin-top: 30px;
   border-radius: 5px;
 }
+
+#form-control label {
+  margin-top: 10px;
+}
