@@ -2,14 +2,24 @@
 <hr/>
 
 <form #formProducto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-producto">
-    <label>Nombre</label>
-    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control">
-    <label>Descripción</label>
-    <textarea class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion"></textarea>
-    <label>Precio</label>
-    <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" class="form-control">
-    <label>Imagen</label>
-    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" class="form-control">
+    <label>
+        Nombre
+        <span style="color:red" *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+
+    </label>
+    <input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre" class="form-control" required>
+    <label>Descripción
+        <span style="color:red" *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripcion es obligatoria</span>
+    </label>
+    <textarea class="form-control" #descripcion="ngModel" name="descripcion" [(ngModel)]="producto.descripcion" required></textarea>
+    <label>Precio
+        <span style="color:red" *ngIf="!precio.valid && precio.touched" class="label label-danger">El precio es obligatorio</span>
+    </label>
+    <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" class="form-control" pattern="[0-9]+" required>
+    <label>Imagen
+        <span style="color:red" *ngIf="!imagen.valid && imagen.touched" class="label label-danger">La imagen es obligatorio</span>
+    </label>
+    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" class="form-control" required>
     <br>
-    <input type="submit" value="{{titulo}}" class="btn-success"/>
+    <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn-success" />
 </form>
