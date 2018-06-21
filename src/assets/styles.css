@@ -23,9 +23,9 @@
 }
 
 #nav {
-    padding: 0px;
-    margin: 0px;
-    background: #e03137a8;
+  padding: 0px;
+  margin: 0px;
+  background: #e03137a8;
 }
 
 #nav ul {
@@ -39,31 +39,31 @@
   display: inline;
 }
 
-#nav ul li a{
-color: white;
-height: 30px;
-line-height: 25px;
-padding-left: 10px;
-padding-right: 10px;
-transition: all 300ms;
+#nav ul li a {
+  color: white;
+  height: 30px;
+  line-height: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: all 300ms;
 }
 
-#nav ul li a:hover{
-text-decoration: none;
-background: #e03137;
+#nav ul li a:hover {
+  text-decoration: none;
+  background: #e03137;
 }
 
-.activado{
-text-decoration: none !important;
-background: #e03137 !important;
-border-bottom: 4px solid yellow !important;
+.activado {
+  text-decoration: none !important;
+  background: #e03137 !important;
+  border-bottom: 4px solid yellow !important;
 }
 
 #footer {
-    margin-top: 30px;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-    color: gray;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  color: gray;
 }
 
 #main .jumbotron {
@@ -74,4 +74,18 @@ border-bottom: 4px solid yellow !important;
 
 #form-control label {
   margin-top: 10px;
+}
+
+.producto_imagen {
+  height: 200px;
+  margin: 0px auto;
+  display: block;
+  max-width: 100%;
+
+}
+
+.imagen_relleno {
+  background-color: #ccc;
+  width: 100%;
+  height: 200px;
 }
