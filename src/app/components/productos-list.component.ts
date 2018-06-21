@@ -14,19 +14,21 @@ export class ProductosListComponent {
   public productos: Producto[];
 
   constructor(
-      private _route: ActivatedRoute,
-      private _router: Router,
-      private _productoService: ProductoService
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _productoService: ProductoService
   ) {
     this.titulo = 'Listado de productos';
   }
 
-  ngOnInit(): void {
-    console.log('Se ha cargado el componente Home');
+  ngOnInit() {
+    console.log('productos-list.component.ts cargado');
+    this.getProductos();
+  }
 
+  getProductos() {
     this._productoService.getProductos().subscribe(
       result => {
-
         if (result.code !== 200) {
           console.log(result);
         } else {

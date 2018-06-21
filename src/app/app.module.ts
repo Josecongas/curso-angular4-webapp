@@ -1,4 +1,4 @@
-import { Http, ConnectionBackend } from '@angular/http';
+import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import { ProductoAddComponent } from './components/producto-add.component';
     ProductosListComponent,
     ProductoAddComponent
   ],
-  imports: [BrowserModule, routing, FormsModule],
+  imports: [BrowserModule, routing, HttpModule, FormsModule],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })

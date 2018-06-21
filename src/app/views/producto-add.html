@@ -19,7 +19,7 @@
     <label>Imagen
         <span style="color:red" *ngIf="!imagen.valid && imagen.touched" class="label label-danger">La imagen es obligatorio</span>
     </label>
-    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" class="form-control" required>
+    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" (change)="fileChangeEvent($event)" class="form-control" required>
     <br>
     <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success" />
 </form>
