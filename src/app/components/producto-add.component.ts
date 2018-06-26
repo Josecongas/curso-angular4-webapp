@@ -21,7 +21,7 @@ export class ProductoAddComponent {
     private _router: Router
   ) {
     this.titulo = 'Crear un nuevo producto';
-    this.producto = new Producto(0, '', '', 0, '');
+    this.producto = new Producto(0, '', '', 0);
   }
 
   ngOnInit(): void {
@@ -31,17 +31,16 @@ export class ProductoAddComponent {
   onSubmit() {
     console.log(this.producto);
 
-    if (this.filesToUpload.length >= 1) {
+    if (this.filesToUpload && this.filesToUpload.length >= 1) {
       this._productoService
         .makeFileRequest(GLOBAL.url + 'upload-file', [], this.filesToUpload)
         .then(
           result => {
             console.log(result);
 
-          this.resultUpload = result;
-          this.producto.imagen = this.resultUpload.filename;
-          this.saveProducto();
-
+            this.resultUpload = result;
+            this.producto.imagen = this.resultUpload.filename;
+            this.saveProducto();
           },
           error => {
             console.log(error);

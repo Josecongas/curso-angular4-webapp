@@ -17,9 +17,13 @@
     </label>
     <input type="text" #precio="ngModel" name="precio" [(ngModel)]="producto.precio" class="form-control" pattern="[0-9]+" required>
     <label>Imagen
-        <span style="color:red" *ngIf="!imagen.valid && imagen.touched" class="label label-danger">La imagen es obligatorio</span>
+        <!-- <span style="color:red" *ngIf="!imagen.valid && imagen.touched" class="label label-danger">La imagen es obligatorio</span> -->
     </label>
-    <input type="file" #imagen="ngModel" name="imagen" [(ngModel)]="producto.imagen" (change)="fileChangeEvent($event)" class="form-control" required>
+    <input type="file" name="imagen" (change)="fileChangeEvent($event)" class="form-control" [value]="" required>
+    <div *ngIf="is_edit">
+        <img src="http://localhost:8080/curso-angular4-backend/uploads/{{producto.imagen}}" style="width: 60%" 
+        />        
+    </div>
     <br>
     <input type="submit" value="{{titulo}}" [disabled]="!formProducto.form.valid" class="btn btn-success" />
 </form>
