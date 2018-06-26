@@ -12,6 +12,7 @@ import { Producto } from '../models/producto';
 export class ProductosListComponent {
   public titulo: string;
   public productos: Producto[];
+  public confirmado = null;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,6 +25,29 @@ export class ProductosListComponent {
   ngOnInit() {
     console.log('productos-list.component.ts cargado');
     this.getProductos();
+  }
+
+  borrarConfirm(id){
+    this.confirmado = id;
+  }
+
+  cancelarConfirm() {
+    this.confirmado = null;
+  }
+
+  onDeleteProducto(id) {
+    this._productoService.deleteProducto(id).subscribe(
+      response => {
+        if (response.code === 200) {
+          this.getProductos();
+        } else {
+          alert('Error al borrar producto');
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
   }
 
   getProductos() {
@@ -40,4 +64,6 @@ export class ProductosListComponent {
       }
     );
   }
+
+  deleteProducto() {}
 }
